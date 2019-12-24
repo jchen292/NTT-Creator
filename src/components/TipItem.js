@@ -12,7 +12,7 @@ export class TipItem extends Component {
                 <p>
                     <input type = "checkbox" onChange = {this.props.markComplete.bind(this,id) } /> {' '}              
                     {title } 
-                    <button onClick = {this.props.deleteTip.bind(this,id) } style = {btnSytle1}> x </button>
+                    <button onClick = {this.props.deleteTip.bind(this,id) } style = {btnSytle1}> Delete </button>
                 </p>
             </div>
         )
@@ -26,12 +26,11 @@ TipItem.propTypes = {
 }
 
 const btnSytle1 = {
-    background: 'ff0000',
+    background: '#4D5A5B',
     color: 'fff',
     border: 'none',
     padding: '5px 8px',
     cursor: 'pointer',
-    borderRadius: '50%',
     float: 'right'
 }
 

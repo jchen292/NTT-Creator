@@ -1,34 +1,17 @@
 import React, { Component } from 'react';
+import { BrowserRouter, Route } from 'react-router-dom';
 import Tips from './components/Tips';
 import './App.css';
 import Header from './components/layout/Header';
 import AddTip from './components/AddTip';
 import uuid from 'uuid'
+import About from './components/pages/About'
+import Contact from './components/pages/Contact'
 
 class App extends Component {
+  //Stores the tips to be displayed once added
   state = {
-    tips: [
-      {
-        id: uuid.v4(),
-        title: 'Did you eat your daily Vegetables and fruits?',
-        completed: false
-      },
-      {
-        id: uuid.v4(),
-        title: 'Going to the gym is healthy for you',
-        completed: false
-      },
-      {
-        id: uuid.v4(),
-        title: 'Brushing your teeth twice, using floss once, and using mouthwash twice a day helps',
-        completed: false
-      },
-      {
-        id: uuid.v4(),
-        title: 'Limited your daily sugar intake?',
-        completed: false
-      }
-    ]
+    tips: []
   }
 
   markComplete = (id) =>{
@@ -62,14 +45,22 @@ class App extends Component {
   render() {
 
     return (
+      <BrowserRouter>  
       <div className="App">
         <div className = "container">
           <Header />
-          <AddTip addTip = {this.addTip}/>
-          <Tips tips = {this.state.tips} markComplete = {this.markComplete} 
-          deleteTip = {this.deleteTip}/> 
+          <Route exact path = "/" render = {props => (
+            <React.Fragment>
+              <AddTip addTip = {this.addTip}/>
+              <Tips tips = {this.state.tips} markComplete = {this.markComplete} 
+              deleteTip = {this.deleteTip}/> 
+            </React.Fragment>
+          )} />
+          <Route path = "/about" component = {About} />
+          <Route path = "/contact" component = {Contact} />
         </div>
       </div>
+      </BrowserRouter>
     );
   }
 }
