@@ -2,13 +2,20 @@ import React, { Component } from 'react'
 import PropTypes from 'prop-types';
 
 export class TipItem extends Component {
-    
+    itemStyle1 = () => {
+        return{
+            backgroundColor: '#f4f4f4',
+            padding:  '20',
+            borderBottom: '1px #ccc dotted',        
+            textDecoration: this.props.tip.completed ? 'line-through'  : 'none'
+        }
+    }
     
     render() {
         const { id,title } = this.props.tip;
         return (
            
-            <div style = { itemStyle1 } >
+            <div style = { this.itemStyle1() } >
                 <p>
                     <input type = "checkbox" onChange = {this.props.markComplete.bind(this,id) } /> {' '}              
                     {title } 
@@ -27,19 +34,12 @@ TipItem.propTypes = {
 
 const btnSytle1 = {
     background: '#4D5A5B',
-    color: 'fff',
-    border: 'none',
+    color: '#61FF33',
     padding: '5px 8px',
     cursor: 'pointer',
     float: 'right'
 }
 
-//One style for the text boxes, can add a new one and chenge above
-const itemStyle1 = {
-    backgroundColor: '#f4f4f4',
-    padding:  '20',
-    borderBottom: '1px #ccc dotted'
 
-}
 
 export default TipItem

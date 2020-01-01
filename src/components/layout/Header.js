@@ -7,7 +7,7 @@ function Header(){
         <header style = {headerStyle1}>
             <h1>Your List of Tips, Notes, or TODOS</h1>
             <h3>Created by Jordan Chen</h3>
-            <Link style = { linkStyle1 } to = "/">NTT Main Page</Link> | <Link style = { linkStyle1 } to= "/about">About Page</Link> | <Link style = { linkStyle1 } to= "/contact">Contact Page</Link>
+            <Link style = { linkStyle1 } to = "/">NTT Main Page</Link>  | <Link style = { linkStyle1 } to= "/about">About Page</Link> | <Link style = { linkStyle1 } to= "/contact">Contact Page</Link>
         </header>
         
     )
@@ -16,7 +16,9 @@ function Header(){
 const headerStyle1 = {
     color: '#61FF33',
     textAlign: 'center',
-    background: '#4D5A5B'
+    background: '#4D5A5B',
+    border: '1px #61FF33 solid',
+    borderRadius: '5px'
 }
 
 const linkStyle1 = {

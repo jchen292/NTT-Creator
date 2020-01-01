@@ -21,15 +21,14 @@ class App extends Component {
         if(tip.completed ){
            alert("Completed!")
         }
-
       }
       return tip;
     } ) } );  
   }
+
   //Deletes tip
   deleteTip = (id) => {
-    this.setState({ tips: [...this.state.tips.filter(tip => tip.id !== id)] });
-    
+    this.setState({ tips: [...this.state.tips.filter(tip => tip.id !== id )] });
   }
   
   //Adds tip
